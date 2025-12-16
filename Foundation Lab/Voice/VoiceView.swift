@@ -39,12 +39,12 @@ struct VoiceView: View {
         return VStack(spacing: 30) {
             // Header
             VStack(alignment: .leading, spacing: 16) {
-                Text(String(localized: "Voice"))
+                Text("Voice")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundStyle(.primary)
 
-                Text(String(localized: "Have a conversation with AI"))
+                Text("Have a conversation with AI")
                     .font(.headline)
                     .foregroundStyle(.secondary)
             }

@@ -23,7 +23,7 @@ enum DynamicSchemaExampleType: String, CaseIterable, Identifiable {
 
     var id: String { rawValue }
 
-    var title: String {
+    var title: LocalizedStringKey {
         switch self {
         case .basicObject:
             return "Basic Object Schema"
@@ -50,7 +50,7 @@ enum DynamicSchemaExampleType: String, CaseIterable, Identifiable {
         }
     }
 
-    var subtitle: String {
+    var subtitle: LocalizedStringKey {
         switch self {
         case .basicObject:
             return "Create simple object schemas at runtime"
@@ -136,7 +136,7 @@ enum DynamicSchemaExampleType: String, CaseIterable, Identifiable {
             }
         }
 
-        var label: String {
+        var label: LocalizedStringKey {
             switch self {
             case .beginner:
                 return "Beginner"

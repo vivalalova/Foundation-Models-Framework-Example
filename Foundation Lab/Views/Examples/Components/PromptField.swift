@@ -10,12 +10,12 @@ import SwiftUI
 /// A reusable prompt field component with built-in features
 struct PromptField: View {
   @Binding var text: String
-  let placeholder: String
+  let placeholder: LocalizedStringKey
   let minHeight: CGFloat
 
   init(
     text: Binding<String>,
-    placeholder: String = "Enter your prompt here...",
+    placeholder: LocalizedStringKey = "Enter your prompt here...",
     minHeight: CGFloat = 100
   ) {
     self._text = text
@@ -63,12 +63,12 @@ struct PromptField: View {
 /// A simplified prompt field for single-line inputs
 struct SimplePromptField: View {
   @Binding var text: String
-  let placeholder: String
+  let placeholder: LocalizedStringKey
   let icon: String?
 
   init(
     text: Binding<String>,
-    placeholder: String = "Enter text...",
+    placeholder: LocalizedStringKey = "Enter text...",
     icon: String? = nil
   ) {
     self._text = text

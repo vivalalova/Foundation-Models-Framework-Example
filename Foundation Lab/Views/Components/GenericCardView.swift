@@ -11,8 +11,8 @@ import LiquidGlasKit
 /// Generic card view used across example and tool lists
 struct GenericCardView: View {
     let icon: String
-    let title: String
-    let subtitle: String
+    let title: LocalizedStringKey
+    let subtitle: LocalizedStringKey
 
     var body: some View {
         VStack(alignment: .leading, spacing: Spacing.small) {

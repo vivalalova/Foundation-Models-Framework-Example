@@ -10,17 +10,17 @@ import SwiftUI
 
 /// Base component for tool views providing consistent UI elements
 struct ToolViewBase<Content: View>: View {
-  let title: String
+  let title: LocalizedStringKey
   let icon: String
-  let description: String
+  let description: LocalizedStringKey
   let isRunning: Bool
   let errorMessage: String?
   let content: Content
 
   init(
-    title: String,
+    title: LocalizedStringKey,
     icon: String,
-    description: String,
+    description: LocalizedStringKey,
     isRunning: Bool = false,
     errorMessage: String? = nil,
     @ViewBuilder content: () -> Content
@@ -87,7 +87,7 @@ enum BannerType {
     }
   }
 
-  var accessibilityLabel: String {
+  var accessibilityLabel: LocalizedStringKey {
     switch self {
     case .error: return "Error"
     case .success: return "Success"
@@ -140,7 +140,7 @@ struct BannerView: View {
     .background(type.color.opacity(0.1))
     .cornerRadius(8)
     .accessibilityElement(children: .combine)
-    .accessibilityLabel("\(type.accessibilityLabel): \(message)")
+    .accessibilityLabel(Text(type.accessibilityLabel) + Text(": ") + Text(message))
   }
 }
 
@@ -420,16 +420,17 @@ struct ToolExecuteButton: View {
 
 /// Standard input field for tool views
 struct ToolInputField: View {
-  let label: String
+  let label: LocalizedStringKey
   @Binding var text: String
-  let placeholder: String
+  let placeholder: LocalizedStringKey
 
   var body: some View {
     VStack(alignment: .leading, spacing: Spacing.small) {
-      Text(label.uppercased())
+      Text(label)
         .font(.footnote)
         .fontWeight(.medium)
         .foregroundColor(.secondary)
+        .textCase(.uppercase)
 
       TextEditor(text: $text)
         .font(.body)

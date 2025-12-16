@@ -10,8 +10,8 @@ import SwiftUI
 
 /// Base component for example views providing consistent UI elements
 struct ExampleViewBase<Content: View>: View {
-  let title: String
-  let description: String
+  let title: LocalizedStringKey
+  let description: LocalizedStringKey
   let defaultPrompt: String
   @Binding var currentPrompt: String
   let isRunning: Bool
@@ -22,8 +22,8 @@ struct ExampleViewBase<Content: View>: View {
   let content: Content
 
   init(
-    title: String,
-    description: String,
+    title: LocalizedStringKey,
+    description: LocalizedStringKey,
     defaultPrompt: String,
     currentPrompt: Binding<String>,
     isRunning: Bool = false,

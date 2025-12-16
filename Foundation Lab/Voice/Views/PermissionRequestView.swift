@@ -24,15 +24,15 @@ struct PermissionRequestView: View {
             VStack(spacing: 20) {
                 PermissionItemView(
                     icon: "mic.fill",
-                    title: String(localized: "Microphone"),
-                    description: String(localized: "To hear your voice"),
+                    title: "Microphone",
+                    description: "To hear your voice",
                     status: getMicrophonePermissionStatus()
                 )
 
                 PermissionItemView(
                     icon: "waveform",
-                    title: String(localized: "Speech Recognition"),
-                    description: String(localized: "To understand your words"),
+                    title: "Speech Recognition",
+                    description: "To understand your words",
                     status: getSpeechPermissionStatus()
                 )
             }
@@ -45,9 +45,7 @@ struct PermissionRequestView: View {
                             .progressViewStyle(CircularProgressViewStyle(tint: .white))
                             .scaleEffect(0.8)
                     } else {
-                        Text(viewModel.allPermissionsGranted ?
-                             String(localized: "Continue") :
-                             String(localized: "Grant Permissions"))
+                        Text(viewModel.allPermissionsGranted ? "Continue" : "Grant Permissions")
                             .fontWeight(.semibold)
                     }
                 }
@@ -61,7 +59,7 @@ struct PermissionRequestView: View {
             .padding(.vertical)
         }
         .padding()
-        .alert(String(localized: "Permissions Required"),
+        .alert("Permissions Required",
                isPresented: .init(
                    get: { viewModel.showPermissionAlert },
                    set: { _ in viewModel.showPermissionAlert = false }
@@ -111,8 +109,8 @@ struct PermissionRequestView: View {
 
 struct PermissionItemView: View {
     let icon: String
-    let title: String
-    let description: String
+    let title: LocalizedStringKey
+    let description: LocalizedStringKey
     let status: PermissionStatus
 
     enum PermissionStatus {

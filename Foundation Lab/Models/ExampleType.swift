@@ -23,7 +23,7 @@ enum ExampleType: String, CaseIterable, Identifiable {
 
     var id: String { rawValue }
 
-    var title: String {
+    var title: LocalizedStringKey {
         switch self {
         case .basicChat:
             return "One-shot"
@@ -48,7 +48,7 @@ enum ExampleType: String, CaseIterable, Identifiable {
         }
     }
 
-    var subtitle: String {
+    var subtitle: LocalizedStringKey {
         switch self {
         case .basicChat:
             return "Single prompt-response interaction"
@@ -118,7 +118,7 @@ enum ToolExample: String, CaseIterable, Hashable {
     case music
     case webMetadata
 
-    var displayName: String {
+    var displayName: LocalizedStringKey {
         switch self {
         case .weather: return "Weather"
         case .web: return "Web Search"
@@ -146,7 +146,7 @@ enum ToolExample: String, CaseIterable, Hashable {
         }
     }
 
-    var shortDescription: String {
+    var shortDescription: LocalizedStringKey {
         switch self {
         case .weather: return "Current conditions"
         case .web: return "Search the web"
@@ -197,7 +197,7 @@ enum LanguageExample: String, CaseIterable, Identifiable {
 
     var id: String { rawValue }
 
-    var title: String {
+    var title: LocalizedStringKey {
         switch self {
         case .languageDetection:
             return "Language Detection"
@@ -210,7 +210,7 @@ enum LanguageExample: String, CaseIterable, Identifiable {
         }
     }
 
-    var subtitle: String {
+    var subtitle: LocalizedStringKey {
         switch self {
         case .languageDetection:
             return "Query and display supported languages"
